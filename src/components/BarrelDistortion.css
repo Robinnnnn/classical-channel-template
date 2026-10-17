@@ -1,0 +1,206 @@
+.barrel-page {
+  min-height: 100vh;
+  background: #111;
+  color: #d4c5a0;
+  padding: 40px 20px 80px;
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+.barrel-page--embedded {
+  min-height: 0;
+  background: transparent;
+  padding: 18px 0 48px;
+}
+
+.barrel-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #e8dcc8;
+  margin-bottom: 0.2em;
+}
+
+.barrel-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.6;
+  margin-bottom: 2em;
+}
+
+.barrel-page--embedded .barrel-subtitle {
+  margin-top: 40px;
+}
+
+.barrel-loading {
+  text-align: center;
+  opacity: 0.5;
+}
+
+.barrel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.barrel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.barrel-screen {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 640 / 400;
+  background: #0a0a0a;
+  clip-path: url(#barrel-crt-clip);
+  overflow: hidden;
+}
+
+.barrel-screen canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Same vignette as the main screen */
+.barrel-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 36px -4px #000000f2,
+    inset 0 0 95px -19px #000000f2;
+  border-radius: 8%;
+}
+
+.barrel-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.barrel-name {
+  font-size: 1.1rem;
+  color: #e8dcc8;
+}
+
+.barrel-params {
+  font-size: 0.8rem;
+  font-family: monospace;
+  opacity: 0.4;
+}
+
+/* Slider controls */
+.barrel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 2.5em;
+  flex-wrap: wrap;
+}
+
+.barrel-control-group {
+  min-width: 180px;
+  max-width: 220px;
+}
+
+.barrel-control-group h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #e8dcc8;
+  margin: 0 0 8px;
+}
+
+.barrel-control-group label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin-top: 6px;
+}
+
+.barrel-control-group label span {
+  font-family: monospace;
+  opacity: 0.7;
+}
+
+.barrel-control-group input[type="range"] {
+  width: 100%;
+  margin: 2px 0 0;
+  accent-color: #d4c5a0;
+  height: 4px;
+  cursor: pointer;
+}
+
+/* Scanlines overlay */
+.barrel-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Animated film grain */
+.barrel-grain {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain steps(4) infinite;
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5%, -10%); }
+  50% { transform: translate(8%, 3%); }
+  75% { transform: translate(-3%, 7%); }
+  100% { transform: translate(5%, -5%); }
+}
+
+/* Glass reflection highlight */
+.barrel-glass {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Chromatic aberration */
+.barrel-aberration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Live TV preview */
+.barrel-tv-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+}
+
+.barrel-tv-wrapper .mobile-note {
+  display: none;
+}
+
+.barrel-tv-fx-overlay {
+  position: absolute;
+  left: 29.22%;
+  top: 18.11%;
+  width: 41.39%;
+  height: 36.55%;
+  z-index: 5;
+  pointer-events: none;
+  clip-path: url(#barrel-tv-crt-clip);
+  overflow: hidden;
+}

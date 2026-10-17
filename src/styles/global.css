@@ -1,0 +1,239 @@
+/* Classical Channel — Global Styles */
+
+/* Custom tooltips */
+.tooltip-text {
+  position: fixed;
+  background: rgba(16, 12, 8, 0.92);
+  color: #d4c5a0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(212, 197, 160, 0.3);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.tooltip-text.visible {
+  opacity: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  color: #d4c5a0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: -2;
+}
+
+body::after {
+  z-index: -1;
+  background-image: radial-gradient(circle at 50% 40%, transparent 0%, rgba(0, 0, 0, 0.2) 55%, rgba(0, 0, 0, 0.62) 100%);
+}
+
+body:not([data-backdrop])::before,
+body[data-backdrop='velvet']::before {
+  background:
+    radial-gradient(120% 95% at 50% 38%, #4b3226 0%, #271814 42%, #120c0d 100%),
+    linear-gradient(135deg, #2f1f1a 0%, #0f0b0d 100%);
+}
+
+body[data-backdrop='halo']::before {
+  background:
+    radial-gradient(75% 52% at 50% 39%, rgba(199, 166, 112, 0.32) 0%, rgba(70, 57, 37, 0.2) 43%, rgba(18, 14, 12, 0.94) 100%),
+    linear-gradient(165deg, #4b493c 0%, #242117 48%, #12100d 100%);
+}
+
+body[data-backdrop='walnut']::before {
+  background:
+    linear-gradient(180deg, rgba(50, 33, 22, 0.56) 0%, rgba(25, 17, 13, 0.74) 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(58, 40, 29, 0.92) 0px,
+      rgba(58, 40, 29, 0.92) 32px,
+      rgba(53, 37, 28, 0.92) 32px,
+      rgba(53, 37, 28, 0.92) 68px
+    );
+  filter: blur(0.8px) saturate(0.88);
+}
+
+body[data-backdrop='stage']::before {
+  background:
+    linear-gradient(180deg, rgba(29, 24, 27, 0.92) 0%, rgba(10, 10, 12, 0.98) 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 2px,
+      rgba(0, 0, 0, 0.02) 2px,
+      rgba(0, 0, 0, 0.02) 7px
+    );
+}
+
+body[data-backdrop='jazz']::before {
+  background:
+    radial-gradient(75% 58% at 52% 42%, rgba(157, 108, 73, 0.22) 0%, rgba(58, 34, 27, 0.28) 46%, rgba(12, 10, 12, 0.96) 100%),
+    linear-gradient(180deg, #1f1718 0%, #0d0b0d 100%);
+}
+
+
+#root {
+  width: 100%;
+}
+
+.app {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Remove default focus/tap highlights */
+button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 1px solid rgba(212, 197, 160, 0.4);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling for playlist/text channels */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 197, 160, 0.3);
+  border-radius: 2px;
+}
+
+/* Debug integration */
+.app-tv-wrap {
+  position: relative;
+}
+
+@media (min-width: 769px) {
+  body.debug-open-mode {
+    align-items: flex-start;
+  }
+
+  .app.debug-open {
+    padding-top: 14px;
+  }
+
+  .app.debug-open .tv-container {
+    max-width: 820px;
+  }
+}
+
+/* Zoom mode — lock viewport and hide overflow */
+body.tv-zoomed-mode {
+  overflow: hidden;
+}
+
+body.tv-zoomed-mode .button-stack,
+body.tv-zoomed-mode .backdrop-toggle-group {
+  display: none;
+}
+
+/* Mobile note */
+.mobile-note {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  html,
+  body,
+  #root {
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .app {
+    position: relative;
+    height: 100dvh;
+    overflow: hidden;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app.debug-open {
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 28px;
+  }
+
+  .app-tv-wrap {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .tv-container {
+    width: 130%;
+    max-width: none;
+    margin-left: -15%;
+  }
+
+  .mobile-note {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(calc(-100% - 10px));
+    z-index: 40;
+    text-align: center;
+    font-size: 0.92rem;
+    opacity: 0.86;
+    color: #d4c5a0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+    padding: 0;
+    font-style: italic;
+    line-height: 1.4;
+    pointer-events: none;
+  }
+
+  .tooltip-text {
+    display: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .app {
+    max-width: 1200px;
+  }
+}

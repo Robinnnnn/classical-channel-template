@@ -1,0 +1,46 @@
+.backdrop-toggle-group {
+  position: fixed;
+  left: 24px;
+  bottom: 18px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.backdrop-toggle {
+  border: 1px solid rgba(212, 197, 160, 0.35);
+  background: rgba(16, 12, 8, 0.72);
+  color: #d4c5a0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+}
+
+.backdrop-toggle:hover {
+  background: rgba(30, 22, 14, 0.86);
+  border-color: rgba(212, 197, 160, 0.55);
+}
+
+.backdrop-toggle.active {
+  border-color: rgba(212, 197, 160, 0.7);
+  background: rgba(38, 28, 18, 0.9);
+}
+
+@media (max-width: 768px) {
+  .backdrop-toggle-group {
+    left: 10px;
+    bottom: 10px;
+    gap: 6px;
+  }
+
+  .backdrop-toggle {
+    font-size: 0.74rem;
+    padding: 5px 9px;
+  }
+}

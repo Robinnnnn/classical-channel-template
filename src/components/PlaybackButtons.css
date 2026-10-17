@@ -1,0 +1,39 @@
+/* Playback buttons — positioned over bottom of TV cabinet */
+.pb-btn {
+  position: absolute;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.pb-btn img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* Exact positions from Figma (% of TV image) */
+.pb-btn--prev {
+  left: 27.61%;
+  top: 60.55%;
+  width: 3.24%;
+  height: 4.30%;
+}
+
+.pb-btn--play {
+  left: 31.89%;
+  top: 60.66%;
+  width: 3.03%;
+  height: 4.02%;
+}
+
+.pb-btn--next {
+  left: 35.50%;
+  top: 59.99%;
+  width: 3.82%;
+  height: 5.58%;
+}

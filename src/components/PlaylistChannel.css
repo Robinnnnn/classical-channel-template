@@ -1,0 +1,62 @@
+/* Playlist */
+.playlist {
+  list-style: none;
+  padding: 12%;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.playlist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(212, 197, 160, 0.1);
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  color: #d4c5a0;
+  border-radius: 4px;
+}
+
+.playlist li:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.playlist li.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.track-number {
+  font-size: 0.68rem;
+  opacity: 0.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.track-title {
+  font-size: 0.78rem;
+}
+
+.track-composer {
+  font-size: 0.66rem;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .playlist {
+    padding: 10%;
+  }
+
+  .playlist li {
+    padding: 7px 6px;
+    gap: 8px;
+  }
+}

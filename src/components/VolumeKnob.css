@@ -1,0 +1,36 @@
+/* Volume knob — right panel, below channel buttons */
+.knob-outer {
+  position: absolute;
+  left: 79.12%;
+  top: 51.62%;
+  width: 2.55%;
+  height: 3.40%;
+  cursor: grab;
+  border-radius: 50%;
+}
+
+.knob-outer:active {
+  cursor: grabbing;
+}
+
+.knob-inner {
+  width: 82%;
+  height: 82%;
+  border-radius: 50%;
+  background: #907b55;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.knob-indicator {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1.5px;
+  height: 7px;
+  border-radius: 1px;
+  background: #c1c1c1;
+}

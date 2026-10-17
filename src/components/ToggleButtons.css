@@ -1,0 +1,39 @@
+.button-stack {
+  position: fixed;
+  right: 24px;
+  bottom: 18px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.toggle-btn {
+  border: 1px solid rgba(212, 197, 160, 0.35);
+  background: rgba(16, 12, 8, 0.72);
+  color: #d4c5a0;
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  padding: 9px 18px;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+}
+
+.toggle-btn:hover {
+  background: rgba(30, 22, 14, 0.86);
+  border-color: rgba(212, 197, 160, 0.55);
+}
+
+.toggle-btn.active {
+  border-color: rgba(212, 197, 160, 0.65);
+  background: rgba(30, 22, 14, 0.9);
+}
+
+@media (max-width: 768px) {
+  .fullscreen-btn {
+    display: none;
+  }
+}

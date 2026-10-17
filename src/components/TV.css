@@ -1,0 +1,131 @@
+/* TV Container — all layers stack here */
+.tv-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* TV cabinet image */
+.tv-frame {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Controls overlay layer */
+.controls-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.controls-layer button,
+.controls-layer .knob-outer {
+  pointer-events: auto;
+}
+
+/* DEBUG: green rings around interactive zones */
+.debug-ring {
+  position: absolute;
+  border: 2px solid lime;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Channel buttons - right panel */
+.debug-ch1 {
+  left: 76.89%;
+  top: 17.30%;
+  width: 6.60%;
+  height: 4.69%;
+}
+
+.debug-ch2 {
+  left: 76.76%;
+  top: 22.04%;
+  width: 6.51%;
+  height: 4.80%;
+}
+
+.debug-ch3 {
+  left: 76.76%;
+  top: 26.67%;
+  width: 7.14%;
+  height: 4.85%;
+}
+
+/* Playback buttons - bottom */
+.debug-pb1 {
+  left: 27.61%;
+  top: 60.55%;
+  width: 3.24%;
+  height: 4.30%;
+  border-radius: 50%;
+}
+
+.debug-pb2 {
+  left: 31.89%;
+  top: 60.66%;
+  width: 3.03%;
+  height: 4.02%;
+  border-radius: 50%;
+}
+
+.debug-pb3 {
+  left: 35.50%;
+  top: 59.99%;
+  width: 3.82%;
+  height: 5.58%;
+  border-radius: 50%;
+}
+
+
+
+/* Volume knob */
+.debug-vol {
+  left: 79.12%;
+  top: 51.62%;
+  width: 2.39%;
+  height: 3.18%;
+  border-radius: 50%;
+}
+
+.controls-layer button,
+.controls-layer .knob-outer {
+  pointer-events: auto;
+}
+
+/* Suppress sporadic browser focus/tap highlight halos on control overlays */
+.controls-layer button:focus,
+.controls-layer button:focus-visible,
+.controls-layer .knob-outer:focus,
+.controls-layer .knob-outer:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ── Zoom mode (press F) ── */
+
+.tv-inner {
+  position: relative;
+  width: 100%;
+  transition: transform 0.6s ease;
+}
+
+.tv-zoomed .tv-inner {
+  transform: translate(var(--zoom-tx, 0), var(--zoom-ty, 0)) scale(var(--zoom-scale, 1));
+  transform-origin: var(--zoom-ox, 50%) var(--zoom-oy, 50%);
+}
+
+.tv-zoomed .controls-layer {
+  display: none;
+}
