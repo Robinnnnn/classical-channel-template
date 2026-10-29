@@ -33,7 +33,7 @@ For local-only configuration, use `VITE_PLAYLIST_URL=/playlist.local.json` in `.
 
 This is a schema example; no media file is included. `videoUrl` may be an absolute HTTP(S) URL or a path relative to the playlist JSON. Alternatively, supply an 11-character `youtubeId` for an embedded video. `title` and at least one media source are required. Optional fields include `arrangement`, `crop` (`top`, `left`, `width`, `height` as percentages), and `videoFit` (`width`, `height`, `objectFit`). A bare array of tracks is also accepted. Invalid/unavailable input leaves the player empty with a short status message.
 
-The optional ingest helper in `skills/classical-track-ingest/` takes your bucket/public-media URL explicitly; it has no production defaults.
+The optional ingest helper in `.agents/skills/classical-track-ingest/` takes your bucket/public-media URL explicitly; it has no production defaults.
 
 ## Check
 

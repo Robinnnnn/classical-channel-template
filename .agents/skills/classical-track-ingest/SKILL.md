@@ -8,7 +8,7 @@ description: Prepare a performance clip with standard encoding, upload to an exp
 Run the helper with the user's chosen media source, bucket, and public-media URL. There are no production defaults:
 
 ```bash
-skills/classical-track-ingest/scripts/ingest-track.sh \
+.agents/skills/classical-track-ingest/scripts/ingest-track.sh \
   --url "<source-url>" \
   --slug "example-recording" \
   --bucket "<your-r2-bucket>" \
